@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome cdn link -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <title>Nav Bar</title>
+</head>
+<style>
+    * {
+        padding: 0%;
+        margin: 0%;
+        box-sizing: border-box;
+    }
+
+    nav {
+        width: 100%;
+        height: 80px;
+        background-color: rgb(49, 49, 49);
+
+    }
+
+    div.logo {
+        font-size: 30px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: white;
+        line-height: 80px;
+        float: left;
+        margin: 0px 0px 0px 15px;
+        /* width: 25%;
+        height: auto;
+        display: block; */
+        border: 2px solid red;
+    }
+
+    ul.menu {
+        float: right;
+        display: flex;
+        line-height: 80px;
+        font-size: 18px;
+        text-transform: uppercase;
+        list-style: none;
+        /* border: 2px solid red; */
+        margin: 0px 15px;
+    }
+
+
+    ul.menu li a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+        padding: 4px 4px;
+        margin: 2px 5px;
+        background-color: black;
+        box-shadow: 0px 0px 5px red, 0px 0px 5px blue;
+        border-radius: 5px;
+    }
+
+    /* toggler btn */
+    .checkbtn i {
+        font-size: 30px;
+        float: right;
+        line-height: 80px;
+        margin: 0px 30px 0px 0px;
+        cursor: pointer;
+        /* box-shadow: 0px 0px 5px red, 0px 0px 5px blue; */
+        display: none;
+    }
+
+        /* dropdown codding */
+   
+    ul.drop-ul{
+        visibility: hidden;
+        opacity: 0;
+        line-height: 40px;
+        position: absolute;
+        top: 100px;
+        list-style: none;
+        background-color: rgb(148, 148, 250);
+        border-top: 4px solid red;
+        transition: all 500ms;
+    }
+    ul.drop-ul li a{
+        box-shadow: none;
+        color: red;
+    }
+    ul.drop-ul li{
+        border-bottom: 1px solid red;
+    }
+    ul.menu li:hover>ul.drop-ul{
+        visibility: visible;
+        opacity: 1;
+        top: 80px;
+    }
+
+    @media (max-width:858px) {
+        ul.menu {
+            flex-direction: column;
+            position: absolute;
+            width: 100%;
+            height: auto;
+            top: 80px;
+            right: -100%;
+            margin: 0px;
+            opacity: 0px;
+            transition: all 500ms;
+            background-color: rgba(255, 0, 0, 0.705);
+            line-height: 60px;
+        }
+
+        ul.menu li{
+            border-bottom: 1px solid red;
+        }
+
+        .checkbtn i {
+            display: block;
+        }
+
+        .checkbtn {
+            position: relative;
+            display: flex;
+            justify-content: end;
+        }
+
+        label i.yes,
+        label i.no {
+            position: absolute;
+            right: 8px;
+            color: white;
+            padding: 0px 0px;
+            transition: all 500ms;
+        }
+        label i.no{
+            opacity: 0;
+        }
+
+        #check:checked~ul.menu {
+            opacity: 1;
+            right: 0%;
+        }
+
+        #check:checked+label i.yes {
+            opacity: 0;
+        }
+
+        #check:checked+label i.no {
+            opacity: 1;
+        }
+
+        ul.drop-ul{
+            display: flex;
+            visibility: hidden;
+        }
+        ul.drop-ul{
+            display: flex;
+            visibility: hidden;
+        }
+
+        ul.menu li:hover>ul.drop-ul{
+        visibility: visible;
+        opacity: 1;
+        top: 0px;
+        position: relative;
+    }
+    
+    }
+
+    #check{
+        display: none;
+    }
+
+</style>
+
+<body>
+    <nav>
+        <input type="checkbox" name="" id="check">
+        <label for="check" class="checkbtn">
+            <i class="fas yes fa-align-justify"></i>
+            <i class="fas no fa-times"></i>
+        </label>
+
+        <div class="logo">
+            our logo
+        </div>
+
+
+
+        <ul class="menu">
+            <!-- <input type="checkbox" name="" id="click-1"> -->
+            <li><a href=""><label for="click-1">home</label></a>
+            <ul class="drop-ul">
+                <li class="drop-list"><a href="">home-1</a></li>
+                <li class="drop-list"><a href="">home-2</a></li>
+                <li class="drop-list"><a href="">home-3</a></li>
+            </ul>
+            </li>
+
+            <li><a href="">about us</a>
+                <ul class="drop-ul">
+                    <li class="drop-list"><a href="">about-1</a></li>
+                    <li class="drop-list"><a href="">about-2</a></li>
+                    <li class="drop-list"><a href="">about-3</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="">our services</a></li>
+            <li><a href="">gallery</a></li>
+            <li><a href="">Contact us</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>
